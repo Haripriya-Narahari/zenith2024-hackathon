@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <title>Attendance System</title>
+</head>
+<body>
+    <h2>Attendance System</h2>
+    <form id="attendanceForm" method="POST" action="/submit-session">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date"><br><br>
+
+        <label for="year">Year:</label>
+        <select id="year" name="year">
+            {% for year in years %}
+            <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <label for="class">Class:</label>
+        <select id="class" name="class">
+            {% for course in courses %}
+            <option value="{{ course }}">{{ course }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <label for="section">Section:</label>
+        <select id="section" name="section">
+            {% for section in sections %}
+            <option value="{{ section }}">{{ section }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <label for="timeslot">Timeslot:</label>
+        <select id="timeslot" name="timeslot">
+            {% for slot in timeslots %}
+            <option value="{{ slot }}">{{ slot }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <input type="submit" value="Submit">
+    </form><br>
+
+    <h3>Student Attendance</h3>
+    <form id="markAttendanceForm" method="POST" action="/submit-attendance">
+        <!-- Add hidden fields for session_details -->
+
+        <table id="attendanceTable">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Name</th>
+                    <th onclick="sortTable(1)">Register Number</th>
+                    <th>Attendance</th>
+                </tr>
+            </thead>
+            <tbody id="attendanceBody">
+                {% for student in student_details %}
+                    <tr>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.reg_num }}</td>
+                        <td>
+                            <select name="attendance">
+                                {% for key, value in attendance_values.items() %}
+                                    <option value="{{ value }}">{{ key }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <input type="submit" value="Submit Attendance">
+    </form>
+</body>
+</html>

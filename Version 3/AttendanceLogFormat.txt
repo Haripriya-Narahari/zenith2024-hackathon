@@ -1,0 +1,26 @@
+[
+	{
+		'session_details': {'date': '2024-04-28', 'year': 4, 'class': 'IoT', 'section': 'B', 'timeslot': '08:10 to 09:00'}, 
+		'attendance_details': [
+			{'name': 'Grace', 'year': 4, 'class': 'IoT', 'section': 'B', 'roll_num': 21119609, 'reg_num': 2101122774, 'attendance': '1'}, 
+			{'name': 'Frank', 'year': 4, 'class': 'IoT', 'section': 'B', 'roll_num': 21114695, 'reg_num': 2101126615, 'attendance': '1'}, 
+			{'name': 'Bob', 'year': 4, 'class': 'IoT', 'section': 'B', 'roll_num': 21118173, 'reg_num': 2101132109, 'attendance': '1'}, 
+			{'name': 'Helen', 'year': 4, 'class': 'IoT', 'section': 'B', 'roll_num': 21113638, 'reg_num': 2101137882, 'attendance': '2'}
+		]
+	}, 
+
+	{
+		'session_details': 
+			{'date': '2024-04-28', 'year': 3, 'class': 'CyberSec', 'section': 'A', 'timeslot': '09:00 to 09:50'}, 
+		'attendance_details': [
+			{'name': 'Frank', 'year': 3, 'class': 'CyberSec', 'section': 'A', 'roll_num': 21114904, 'reg_num': 2101122802, 'attendance': '1'}
+		]
+	}, 
+
+	{
+		'session_details': {'date': '2024-04-27', 'year': 3, 'class': 'IoT', 'section': 'B', 'timeslot': '11:50 to 12:40'}, 
+		'attendance_details': [
+			{'name': 'Ivan', 'year': 3, 'class': 'IoT', 'section': 'B', 'roll_num': 21119313, 'reg_num': 2101159133, 'attendance': '2'}
+		]
+	}
+]
