@@ -76,6 +76,15 @@ class EdBlockChain():
             
         return True
 
+def save_blockchain(blockchain):
+    with open('BlockchainData/blockchain.pkl', 'wb') as file:
+        pickle.dump(blockchain, file)
+
+def load_blockchain():
+    with open('BlockchainData/blockchain.pkl', 'rb') as file:
+        blockchain = pickle.load(file)
+    return blockchain
+
 def main():
     # Transactions
     blockchain = EdBlockChain()
@@ -86,6 +95,8 @@ def main():
 
     for block in blockchain.chain:
         print(block)
+
+    save_blockchain(blockchain)
 
     # Corrupting the block
     # blockchain.chain[2].data = "NEW DATA"

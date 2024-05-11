@@ -1,0 +1,1 @@
+{'date': '2024-05-02', 'details': [{'session_details': {'year': 3, 'class': 'IoT', 'section': 'B', 'timeslot': '11:00 to 11:50'}, 'attendance_details': {2101159133: '1'}}]}

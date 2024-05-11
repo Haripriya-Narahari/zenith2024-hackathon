@@ -76,6 +76,8 @@ def main():
     # Load all attendance data
     attendance_log = attendance_log_vs.get_value()
 
+    # Merge Attendance Logs from instances
+
     # Get today's attendance (entire day)
     attendance_today = get_todays_attendance(attendance_log)
 
