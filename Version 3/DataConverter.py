@@ -1,4 +1,5 @@
 from TemporaryVariableStorage import TemporaryVariable
+from celery import Celery
 from datetime import date
 import os
 
@@ -71,12 +72,15 @@ def push_to_database(attendance_today):
 
     save_attendance_as_file(attendance_today_cleaned)
 
+celery = Celery('DataConverter', broker='redis://localhost:6379/0')
+@celery.on_after_configure.connect
+def setup_periodic_tasks(sender, **kwargs):
+    sender.add_periodic_task(20.0, main.s(), name='saved attendance')
 
+@celery.task
 def main():
     # Load all attendance data
     attendance_log = attendance_log_vs.get_value()
-
-    # Merge Attendance Logs from instances
 
     # Get today's attendance (entire day)
     attendance_today = get_todays_attendance(attendance_log)
